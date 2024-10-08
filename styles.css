@@ -1,0 +1,412 @@
+body {
+    background: url('img/background.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.game-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
+    gap: 20px; /* Add some space between the producers */
+    justify-items: center; /* Center the producers in their grid cells */
+    max-width: 1000px; /* Restrict the width of the section */
+    margin: 0 auto; /* Center the grid section horizontally */
+    padding: 20px; /* Add some padding around the section */
+}
+
+
+.manager-panel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.manager-panel p {
+    margin: 5px 0;
+}
+
+.manager-panel h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-right: 300px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+header h2 {
+    font-size: 1.5rem;
+    margin: 5px 0;
+}
+
+.producer {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px; /* Reduced the width of each producer */
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.producer h3 {
+    margin: 10px 0;
+    font-size: 1.8rem;
+}
+
+button {
+    background: linear-gradient(135deg, #6dd5fa, #2980b9);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin: 15px 0;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:disabled {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slider {
+    margin-top: 10px;
+    width: 90%;
+}
+
+.producer-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out; 
+}
+
+.producer-image.disabled {
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}
+
+.shadow-effect {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
+    opacity: 0.7;
+}
+
+
+.shadow-effect {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+    transition: box-shadow 1s linear;
+}
+
+
+.info-panel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.info-panel p {
+    margin: 5px 0;
+}
+
+.upgrade-store {
+    position: absolute;
+    top: 150px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.upgrade-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.upgrade-item {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.upgrade-item img {
+    
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+.upgrade-item p {
+    color: white;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.upgrade-item:hover {
+    transform: scale(1.1);        /* Slightly enlarge the image on hover */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); /* Adds a more prominent shadow on hover */
+}
+
+
+@media (max-width: 768px) {
+    .producer {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .manager-panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 20px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header h2 {
+        font-size: 1.2rem;
+    }
+
+    .game-container {
+        padding-right: 0;
+    }
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .producer {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .manager-panel {
+        position: relative; /* Make it relative to flow normally */
+        top: 0;
+        right: 0;
+        margin-top: 10px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(0, 0, 0, 0.8); /* Keep the style consistent */
+        z-index: 100;
+    }
+
+    .upgrade-store {
+        position: relative; /* Make it relative to flow normally */
+        top: 0;
+        left: 0;
+        margin-top: 20px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(0, 0, 0, 0.8); /* Keep the style consistent */
+        z-index: 100;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header h2 {
+        font-size: 1.2rem;
+    }
+
+    .game-container {
+        padding-right: 0;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .producer {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .manager-panel {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-top: 10px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 100;
+        padding: 10px;
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: 1fr; /* Make it a single column layout */
+        gap: 10px; /* Add some spacing between the buttons */
+        text-align: center; /* Center the content */
+    }
+
+    .manager-panel h3 {
+        grid-column: span 1; /* Make the heading span across the entire width */
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .manager-panel button {
+        width: 80%; /* Limit button width */
+        margin: 0 auto; /* Center the buttons */
+        padding: 10px 20px; /* Adjust button padding */
+    }
+
+    .upgrade-store {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-top: 20px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 100;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header h2 {
+        font-size: 1.2rem;
+    }
+
+    .game-container {
+        padding-right: 0;
+    }
+}
+
+.info-panel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Make info-panel responsive on mobile */
+@media (max-width: 768px) {
+    .info-panel {
+        position: relative;
+        width: 90%;  /* Full width with some margin on mobile */
+        margin: 20px auto;  /* Center it horizontally */
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 15px 25px;
+        text-align: center;  /* Center text inside */
+        border-radius: 10px;
+        z-index: 100;
+    }
+
+    .info-panel p {
+        font-size: 1.2rem;  /* Adjust text size for mobile */
+        margin: 10px 0;
+    }
+}
+
+
+/* Cooldown effect for producers on click */
+.producer-image.cooldown {
+    opacity: 0.5; /* Reduce opacity to show cooldown */
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8); /* Red shadow to indicate cooldown */
+    transition: opacity 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.producer-image.disabled {
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}
+
+
+/* Cooldown effect for producers on click */
+.producer-image.cooldown {
+    opacity: 0.5; /* Reduce opacity to show cooldown */
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8); /* Red shadow to indicate cooldown */
+    transition: opacity 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.producer-image.disabled {
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}
+
+

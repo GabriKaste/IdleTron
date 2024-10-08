@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdleTron</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <style>
+        a:hover {
+            color: #0056b3; /* Darker blue on hover */
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="info-panel">
+        <p>Coin: <span id="totalCoins">0</span></p>
+        <p>Income: <span id="coinsPerSecond">0</span>/s</p>
+    </div>
+
+    <div class="manager-panel">
+        <h3>Auto Activate</h3>
+        <div id="hackerLaptopManager">
+            <p><button class="buyManager" data-cost="1000" data-index="0">Lv-I ($1K)</button></p>
+        </div>
+        <div id="pcMinerManager">
+            <p><button class="buyManager" data-cost="15000" data-index="1">Lv-II ($15K)</button></p>
+        </div>
+        <div id="gpuSetupManager">
+            <p><button class="buyManager" data-cost="100000" data-index="2">Lv-III ($100K)</button></p>
+        </div>
+        <div id="cloudMiningManager">
+            <p><button class="buyManager" data-cost="500000" data-index="3">Lv-IV ($500K)</button></p>
+        </div>
+        <div id="warehouseManager">
+            <p><button class="buyManager" data-cost="2000000" data-index="4">Lv-V ($2M)</button></p>
+        </div>
+        <div id="aiTraderManager">
+            <p><button class="buyManager" data-cost="10000000" data-index="5">Lv-VI ($10M)</button></p>
+        </div>
+        <div id="facilityManager">
+            <p><button class="buyManager" data-cost="50000000" data-index="6">Lv-VII ($50M)</button></p>
+        </div>
+        <div id="metaverseManager">
+            <p><button class="buyManager" data-cost="200000000" data-index="7">Lv-VIII ($200M)</button></p>
+        </div>
+        <div id="vrStationManager">
+            <p><button class="buyManager" data-cost="1000000000" data-index="8">Lv-IX ($1B)</button></p>
+        </div>
+        <div id="quantumMinerManager">
+            <p><button class="buyManager" data-cost="5000000000" data-index="9">Lv-X ($5B)</button></p>
+        </div>
+    </div>
+
+    <div class="upgrade-store">
+        <h3>BTTC Store</h3>
+        <div class="upgrade-grid">
+            <div class="upgrade-item upgrade-item-time" id="boost1h">
+                <img src="img/1h.png" alt="1 Hour Boost">
+                <p>+1h</p>
+            </div>
+            <div class="upgrade-item upgrade-item-time" id="boost4h">
+                <img src="img/4h.png" alt="4 Hour Boost">
+                <p>+4h</p>
+            </div>
+            <div class="upgrade-item upgrade-item-time" id="boost24h">
+                <img src="img/24h.png" alt="1 Day Boost">
+                <p>+24h</p>
+            </div>            
+            <div class="upgrade-item upgrade-item_increment" id="hackerBoost1">
+                <img src="levels/1_laptop.jpeg" alt="Hacker Laptop Boost">
+                <p>+1</p>
+            </div>
+            <div class="upgrade-item upgrade-item_increment" id="hackerBoost5">
+                <img src="levels/1_laptop.jpeg" alt="Hacker Laptop Boost">
+                <p>+5</p>
+            </div>
+            <div class="upgrade-item upgrade-item_increment" id="hackerBoost10">
+                <img src="levels/1_laptop.jpeg" alt="Hacker Laptop Boost">
+                <p>+10</p>
+            </div>
+            <div class="upgrade-item upgrade-item_increment" id="pcBoost1">
+                <img src="levels/2_mine.jpeg" alt="PC Miner Boost">
+                <p>+1</p>
+            </div>
+            <div class="upgrade-item upgrade-item_increment" id="pcBoost5">
+                <img src="levels/2_mine.jpeg" alt="PC Miner Boost">
+                <p>+5</p>
+            </div>
+            <div class="upgrade-item upgrade-item_increment" id="pcBoost10">
+                <img src="levels/2_mine.jpeg" alt="PC Miner Boost">
+                <p>+10</p>
+            </div>
+            <div class="upgrade-item upgrade-item_increment" id="gpuBoost1">
+                <img src="levels/3_gpu.jpeg" alt="GPU Boost">
+                <p>+1</p>
+            </div>
+            <div class="upgrade-item upgrade-item_increment" id="gpuBoost5">
+                <img src="levels/3_gpu.jpeg" alt="GPU Boost">
+                <p>+5</p>
+            </div>
+            <div class="upgrade-item upgrade-item_increment" id="gpuBoost10">
+                <img src="levels/3_gpu.jpeg" alt="GPU Boost">
+                <p>+10</p>
+            </div>            
+            
+        </div>
+    </div>
+
+    <div class="start-game">
+        <button id="connectMetaMaskButton">Connect MetaMask (BTTC)</button>
+    </div>
+    <div id="gameContent" style="display: none;">
+        <h1>IdleTron <span style="font-weight: bold; color: #4a0788; transition: color 0.3s;">
+            <a href="./wiki/" style="text-decoration: none; color: inherit;">[wiki]</a>
+        </span></h1>
+        
+        <p id="userAddressDisplay"></p>
+
+        <div class="game-section">
+            <div class="producer" id="hackerLaptop">
+                <img src="levels/1_laptop.jpeg" alt="Hacker Laptop" class="producer-image">
+                <h3>Laptop x <span id="hackerAmount">0</span></h3>
+                <p>Cost: $<span id="hackerCost">4</span></p>
+                <p>Revenue: $<span id="hackerRevenue">1</span></p>
+                <p>Time: <span id="hackerDelayDisplay">1</span>s</p>
+                <p><button class="buyProducer" data-cost="4" data-index="0">Buy Hacker Laptop</button></p>
+            </div>
+
+            <div class="producer" id="pcMiner">
+                <img src="levels/2_mine.jpeg" alt="PC Miner" class="producer-image">
+                <h3>Mine x <span id="pcAmount">0</span></h3>
+                <p>Cost: $<span id="pcCost">60</span></p>
+                <p>Revenue: $<span id="pcRevenue">20</span></p>
+                <p>Time: <span id="pcDelayDisplay">3</span>s</p>
+                <p><button class="buyProducer" data-cost="60" data-index="1">Buy PC Miner</button></p>
+            </div>
+
+            <div class="producer" id="gpuSetup">
+                <img src="levels/3_gpu.jpeg" alt="GPU Setup" class="producer-image">
+                <h3>GPU x <span id="gpuAmount">0</span></h3>
+                <p>Cost: $<span id="gpuCost">720</span></p>
+                <p>Revenue: $<span id="gpuRevenue">90</span></p>
+                <p>Time: <span id="gpuDelayDisplay">6</span>s</p>
+                <p><button class="buyProducer" data-cost="720" data-index="2">Buy GPU Setup</button></p>
+            </div>
+
+            <!-- Add similar sections for other products (Cloud Mining, Warehouse, AI Trader, etc.) -->
+            <div class="producer" id="cloudMining">
+                <img src="levels/4_cloud.jpeg" alt="Cloud Mining" class="producer-image">
+                <h3>Cloud Mining x <span id="cloudMiningAmount">0</span></h3>
+                <p>Cost: $<span id="cloudMiningCost">5000</span></p>
+                <p>Revenue: $<span id="cloudMiningRevenue">250</span></p>
+                <p>Time: <span id="cloudMiningDelayDisplay">10</span>s</p>
+                <p><button class="buyProducer" data-cost="5000" data-index="3">Buy Cloud Mining</button></p>
+            </div>
+
+            <div class="producer" id="warehouse">
+                <img src="levels/5_warehouse.jpeg" alt="Warehouse" class="producer-image">
+                <h3>Warehouse x <span id="warehouseAmount">0</span></h3>
+                <p>Cost: $<span id="warehouseCost">20000</span></p>
+                <p>Revenue: $<span id="warehouseRevenue">1000</span></p>
+                <p>Time: <span id="warehouseDelayDisplay">30</span>s</p>
+                <p><button class="buyProducer" data-cost="20000" data-index="4">Buy Warehouse</button></p>
+            </div>
+
+            <div class="producer" id="aiTrader">
+                <img src="levels/6_aitrader.jpeg" alt="AI Trader" class="producer-image">
+                <h3>AI Trader x <span id="aiTraderAmount">0</span></h3>
+                <p>Cost: $<span id="aiTraderCost">100000</span></p>
+                <p>Revenue: $<span id="aiTraderRevenue">5000</span></p>
+                <p>Time: <span id="aiTraderDelayDisplay">60</span>s</p>
+                <p><button class="buyProducer" data-cost="100000" data-index="5">Buy AI Trader</button></p>
+            </div>
+
+            <div class="producer" id="facility">
+                <img src="levels/7_facility.jpeg" alt="Facility" class="producer-image">
+                <h3>Facility x <span id="facilityAmount">0</span></h3>
+                <p>Cost: $<span id="facilityCost">500000</span></p>
+                <p>Revenue: $<span id="facilityRevenue">25000</span></p>
+                <p>Time: <span id="facilityDelayDisplay">120</span>s</p>
+                <p><button class="buyProducer" data-cost="500000" data-index="6">Buy Facility</button></p>
+            </div>
+
+            <div class="producer" id="metaverse">
+                <img src="levels/8_metaverse.jpeg" alt="Metaverse" class="producer-image">
+                <h3>Metaverse x <span id="metaverseAmount">0</span></h3>
+                <p>Cost: $<span id="metaverseCost">1000000</span></p>
+                <p>Revenue: $<span id="metaverseRevenue">50000</span></p>
+                <p>Time: <span id="metaverseDelayDisplay">300</span>s</p>
+                <p><button class="buyProducer" data-cost="1000000" data-index="7">Buy Metaverse</button></p>
+            </div>
+
+            <div class="producer" id="vrStation">
+                <img src="levels/9_vrstation.jpeg" alt="VR Station" class="producer-image">
+                <h3>VR Station x <span id="vrStationAmount">0</span></h3>
+                <p>Cost: $<span id="vrStationCost">5000000</span></p>
+                <p>Revenue: $<span id="vrStationRevenue">250000</span></p>
+                <p>Time: <span id="vrStationDelayDisplay">600</span>s</p>
+                <p><button class="buyProducer" data-cost="5000000" data-index="8">Buy VR Station</button></p>
+            </div>
+
+            <div class="producer" id="quantumMiner">
+                <img src="levels/10_quantumminer.jpeg" alt="Quantum Miner" class="producer-image">
+                <h3>Quantum Miner x <span id="quantumMinerAmount">0</span></h3>
+                <p>Cost: $<span id="quantumMinerCost">10000000</span></p>
+                <p>Revenue: $<span id="quantumMinerRevenue">500000</span></p>
+                <p>Time: <span id="quantumMinerDelayDisplay">1200</span>s</p>
+                <p><button class="buyProducer" data-cost="10000000" data-index="9">Buy Quantum Miner</button></p>
+            </div>
+        </div>
+    </div>
+
+    <button id="saveProgressButton" disabled>Save Progress</button>
+
+    <script src="./game_logic.js"></script>    
+</body>
+</html>
