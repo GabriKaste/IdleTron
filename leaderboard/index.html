@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdleTron Leaderboard</title>
+
+    <link rel="icon" href="../IdleTron.png" type="image/png">
+
+    <meta name="description" content="IdleTron - a decentralized idle game built on the BTTC blockchain. Collect coins, upgrade assets, and climb the leaderboard in this engaging clicker game.">
+    <meta name="keywords" content="IdleTron, blockchain game, BTTC, decentralized gaming, idle clicker game, cryptocurrency game, coin collecting game, upgrade assets, leaderboard">
+    <meta name="author" content="IdleTron Dev Team">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://idletron.com/">
+    <meta property="og:title" content="IdleTron - Play and Collect on BTTC Blockchain">
+    <meta property="og:description" content="Join IdleTron and build your fortune on the BTTC blockchain. Collect, upgrade, and compete!">
+    <meta property="og:image" content="IdleTron.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://idletron.com/">
+    <meta name="twitter:title" content="IdleTron - Play and Collect on BTTC Blockchain">
+    <meta name="twitter:description" content="Join IdleTron and build your fortune on the BTTC blockchain. Collect, upgrade, and compete!">
+    <meta name="twitter:image" content="IdleTron.png">
+    
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        .game-link {
+            color: #4a0788;
+            text-decoration: none; 
+            transition: color 0.3s ease;
+        }
+
+        .game-link:hover {
+            color: #ffdd57;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>
+        <a href="../" class="game-link">[IdleTron]</a> Leaderboard
+    </h1>
+    
+    <p>Check out the top players based on total coins and income per second!</p>
+
+    <!-- Leaderboard Table -->
+    <table class="leaderboard-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Player Address</th>
+                <th>Total Coins</th>
+                <th>Coins Per Second</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard-body">
+        </tbody>
+    </table>
+
+    <div id="loading-message" class="loading-message">Loading…</div>
+
+
+    <div id="user-address" class="user-address" style="display: none; visibility: none;"></div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="leaderboard.js"></script>
+
+</body>
+</html>

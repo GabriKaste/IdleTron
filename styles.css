@@ -11,14 +11,13 @@ body {
 
 .game-section {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
-    gap: 20px; /* Add some space between the producers */
-    justify-items: center; /* Center the producers in their grid cells */
-    max-width: 1000px; /* Restrict the width of the section */
-    margin: 0 auto; /* Center the grid section horizontally */
-    padding: 20px; /* Add some padding around the section */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
 }
-
 
 .manager-panel {
     position: absolute;
@@ -71,11 +70,10 @@ header h2 {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 20px;
-    width: 400px; /* Reduced the width of each producer */
+    width: 400px;
     text-align: center;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
-
 
 .producer h3 {
     margin: 10px 0;
@@ -123,7 +121,7 @@ button:active {
     border-radius: 10px;
     margin-bottom: 10px;
     cursor: pointer;
-    transition: box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out; 
+    transition: box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .producer-image.disabled {
@@ -136,12 +134,10 @@ button:active {
     opacity: 0.7;
 }
 
-
 .shadow-effect {
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
     transition: box-shadow 1s linear;
 }
-
 
 .info-panel {
     position: absolute;
@@ -191,7 +187,6 @@ button:active {
 }
 
 .upgrade-item img {
-    
     width: 40px;
     height: 40px;
     object-fit: contain;
@@ -205,10 +200,9 @@ button:active {
 }
 
 .upgrade-item:hover {
-    transform: scale(1.1);        /* Slightly enlarge the image on hover */
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); /* Adds a more prominent shadow on hover */
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
 }
-
 
 @media (max-width: 768px) {
     .producer {
@@ -239,10 +233,6 @@ button:active {
     }
 }
 
-
-
-
-
 @media (max-width: 768px) {
     .producer {
         width: 80%;
@@ -250,26 +240,26 @@ button:active {
     }
 
     .manager-panel {
-        position: relative; /* Make it relative to flow normally */
+        position: relative;
         top: 0;
         right: 0;
         margin-top: 10px;
         width: 90%;
         margin-left: auto;
         margin-right: auto;
-        background-color: rgba(0, 0, 0, 0.8); /* Keep the style consistent */
+        background-color: rgba(0, 0, 0, 0.8);
         z-index: 100;
     }
 
     .upgrade-store {
-        position: relative; /* Make it relative to flow normally */
+        position: relative;
         top: 0;
         left: 0;
         margin-top: 20px;
         width: 90%;
         margin-left: auto;
         margin-right: auto;
-        background-color: rgba(0, 0, 0, 0.8); /* Keep the style consistent */
+        background-color: rgba(0, 0, 0, 0.8);
         z-index: 100;
     }
 
@@ -285,8 +275,6 @@ button:active {
         padding-right: 0;
     }
 }
-
-
 
 @media (max-width: 768px) {
     .producer {
@@ -307,21 +295,21 @@ button:active {
         padding: 10px;
         border-radius: 10px;
         display: grid;
-        grid-template-columns: 1fr; /* Make it a single column layout */
-        gap: 10px; /* Add some spacing between the buttons */
-        text-align: center; /* Center the content */
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
     }
 
     .manager-panel h3 {
-        grid-column: span 1; /* Make the heading span across the entire width */
+        grid-column: span 1;
         font-size: 1.5rem;
         margin-bottom: 15px;
     }
 
     .manager-panel button {
-        width: 80%; /* Limit button width */
-        margin: 0 auto; /* Center the buttons */
-        padding: 10px 20px; /* Adjust button padding */
+        width: 80%;
+        margin: 0 auto;
+        padding: 10px 20px;
     }
 
     .upgrade-store {
@@ -362,33 +350,30 @@ button:active {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Make info-panel responsive on mobile */
 @media (max-width: 768px) {
     .info-panel {
         position: relative;
-        width: 90%;  /* Full width with some margin on mobile */
-        margin: 20px auto;  /* Center it horizontally */
+        width: 90%;
+        margin: 20px auto;
         top: 0;
         left: 0;
         background-color: rgba(0, 0, 0, 0.8);
         padding: 15px 25px;
-        text-align: center;  /* Center text inside */
+        text-align: center;
         border-radius: 10px;
         z-index: 100;
     }
 
     .info-panel p {
-        font-size: 1.2rem;  /* Adjust text size for mobile */
+        font-size: 1.2rem;
         margin: 10px 0;
     }
 }
 
-
-/* Cooldown effect for producers on click */
 .producer-image.cooldown {
-    opacity: 0.5; /* Reduce opacity to show cooldown */
-    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8); /* Red shadow to indicate cooldown */
-    transition: opacity 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    opacity: 0.5;
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8);
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
 .producer-image.disabled {
@@ -396,12 +381,10 @@ button:active {
     filter: grayscale(100%);
 }
 
-
-/* Cooldown effect for producers on click */
 .producer-image.cooldown {
-    opacity: 0.5; /* Reduce opacity to show cooldown */
-    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8); /* Red shadow to indicate cooldown */
-    transition: opacity 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    opacity: 0.5;
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8);
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
 .producer-image.disabled {
@@ -409,4 +392,59 @@ button:active {
     filter: grayscale(100%);
 }
 
+.bottom-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
 
+.bottom-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.bottom-link:hover {
+    transform: scale(1.05);
+}
+
+.link-icon {
+    width: 60px;
+    height: auto;
+    margin-bottom: 8px;
+    transition: transform 0.3s;
+}
+
+.bottom-link:hover .link-icon {
+    transform: scale(1.1);
+}
+
+.bottom-link span {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .bottom-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .link-icon {
+        width: 50px;
+    }
+
+    .bottom-link span {
+        font-size: 1rem;
+    }
+}

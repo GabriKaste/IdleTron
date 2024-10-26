@@ -3,12 +3,31 @@
 <head>
     <meta charset="viewport" content="width=device-width, initial-scale=1.0">
     <title>IdleTron</title>
+
+    <link rel="icon" href="IdleTron.png" type="image/png">
+
+    <meta name="description" content="IdleTron - a decentralized idle game built on the BTTC blockchain. Collect coins, upgrade assets, and climb the leaderboard in this engaging clicker game.">
+    <meta name="keywords" content="IdleTron, blockchain game, BTTC, decentralized gaming, idle clicker game, cryptocurrency game, coin collecting game, upgrade assets, leaderboard">
+    <meta name="author" content="IdleTron Dev Team">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://idletron.com/">
+    <meta property="og:title" content="IdleTron - Play and Collect on BTTC Blockchain">
+    <meta property="og:description" content="Join IdleTron and build your fortune on the BTTC blockchain. Collect, upgrade, and compete!">
+    <meta property="og:image" content="IdleTron.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://idletron.com/">
+    <meta name="twitter:title" content="IdleTron - Play and Collect on BTTC Blockchain">
+    <meta name="twitter:description" content="Join IdleTron and build your fortune on the BTTC blockchain. Collect, upgrade, and compete!">
+    <meta name="twitter:image" content="IdleTron.png">
+
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <style>
         a:hover {
-            color: #0056b3; /* Darker blue on hover */
-            text-decoration: underline; /* Underline on hover */
+            color: #0056b3;
+            text-decoration: underline; 
         }
     </style>
 </head>
@@ -145,7 +164,6 @@
                 <p><button class="buyProducer" data-cost="720" data-index="2">Buy GPU Setup</button></p>
             </div>
 
-            <!-- Add similar sections for other products (Cloud Mining, Warehouse, AI Trader, etc.) -->
             <div class="producer" id="cloudMining">
                 <img src="levels/4_cloud.jpeg" alt="Cloud Mining" class="producer-image">
                 <h3>Cloud Mining x <span id="cloudMiningAmount">0</span></h3>
@@ -213,6 +231,26 @@
 
     <button id="saveProgressButton" disabled>Save Progress</button>
 
-    <script src="./game_logic.js"></script>    
+    <div class="bottom-links">
+        <a href="./achievements/" class="bottom-link">
+            <img src="img/achievements.png" alt="Achievements" class="link-icon">
+            <span>Achievements</span>
+        </a>
+        <a href="./leaderboard/" class="bottom-link">
+            <img src="img/leaderboard.png" alt="Leaderboard" class="link-icon">
+            <span>Leaderboard</span>
+        </a>
+    </div>
+
+
+    <script src="./game_logic.js"></script> 
+    <script>
+        window.addEventListener("beforeunload", function (e) {
+            const confirmationMessage = "You have unsaved progress. Would you like to save before leaving?";
+            e.returnValue = confirmationMessage;
+            return confirmationMessage;         
+        });
+    </script>
+       
 </body>
 </html>
